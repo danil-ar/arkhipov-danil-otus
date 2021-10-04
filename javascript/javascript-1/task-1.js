@@ -13,6 +13,7 @@ function maxItemAssociation(arrHistoryData) {
     }
     let index = 0;
     let maxCount = 0;
+    result.sort(); // Правка замечания от преподавателя: возвращать не просто самый больший по длине список рекомендаций, но, и в случае, если списков с одинаковой длиной будет несколько, то результатом будет тот, который в алфавитном порядке выше
     for (let i = 0; i < result.length; i += 1) {
         if (result[i].length > maxCount) {
             maxCount = result[i].length;
@@ -31,6 +32,14 @@ console.log(
         ["a", "b"],
         ["a", "c"],
         ["d", "e"],
+    ])
+); //["a", "b", "c"]
+console.log(
+    maxItemAssociation([
+        ["d", "e"],
+        ["d", "n"],
+        ["a", "c"],
+        ["a", "b"],
     ])
 ); //["a", "b", "c"]
 console.log(
