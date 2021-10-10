@@ -56,6 +56,15 @@ function promiseReduce_v2(asyncFunctions, reduce, initialValue) {
     return promise;
 }
 
+//v3
+function promiseReduce_v3(asyncFunctions, reduce, initialValue) {
+    return asyncFunctions.reduce(function (prev, fn) {
+        return prev.then(fn).then((values) => {
+            return initialValue = reduce(initialValue, values);
+        });
+    }, Promise.resolve());
+}
+
 promiseReduce(
     [fn1, fn2],
     function (memo, value) {
