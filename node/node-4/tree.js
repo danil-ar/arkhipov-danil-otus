@@ -1,6 +1,9 @@
 import { readdir } from "fs/promises";
 
 async function tree(path) {
+    if (typeof path  == "undefined") {
+        return "Invalid input arguments. When invoked, you must specify the --path argument, for example: npm run tree -- foo/";
+    }
     const results = { files: [], dirs: [] };
     path = path.replace('/', '');
     results.dirs.push(path);
@@ -26,4 +29,4 @@ async function scanFs(path, results) {
     return results;
 }
 
-tree("foo/").then((data) => console.log(data));
+tree(process.argv[2]).then((data) => console.log(data));
