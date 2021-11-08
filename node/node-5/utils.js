@@ -26,7 +26,7 @@ const deleteFile = function deleteFile(fileName) {
 };
 
 const createLimitFile = function createLimitFile(fileName, fileSizeMB, numberRandomMin, numberRandomMax, logFlg = false) {
-    const arrLength = 1000;
+    const arrLength = 100;
     let sNumber;
     deleteFile(fileName);
     do {

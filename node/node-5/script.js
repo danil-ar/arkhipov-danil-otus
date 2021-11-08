@@ -7,7 +7,7 @@ const sortFileName = "sortFile.txt";
 const numberRandomMin = 1;
 const numberRandomMax = 9999999;
 const fileSizeMB = 100;
-const tempFileSizeMB = 5;
+const tempFileSizeMB = 3;
 
 async function start() {
     console.log("Start");
@@ -65,7 +65,7 @@ async function sortFile(tempFileNames) {
         const streamValues = [];
         const sortFileWriteStream = fs.createWriteStream(sortFileName);
         tempFileNames.forEach((item, index) => {
-            const readStream = fs.createReadStream(item,{highWaterMark:100});
+            const readStream = fs.createReadStream(item,{highWaterMark:70});
             const readLine = readline.createInterface(readStream);
             streamValues[index] = [];
             streams[index] = readStream;
